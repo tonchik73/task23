@@ -5,16 +5,20 @@ interface VehicleInterface
     public function move();
     public function ability();
     public function wipers();
+    public function honk();
+}
+
+abstract class Vehicle  implements VehicleInterface {
+    public function move() {
+        echo('Move')
+    }
     public function honk() {
         echo('Beep')
     }
 }
 
-class Car implements VehicleInterface
+class Car extends Vehicle
 {
-    public function move() {
-        echo('Move')
-    }
     public function ability() {
         echo('Nitro')
     }
@@ -24,11 +28,8 @@ class Car implements VehicleInterface
     
 }
 
-class Buildozer implements VehicleInterface
+class Buildozer extends Vehicle
 {
-    public function move() {
-        echo('Move')
-    }
     public function ability() {
         echo('Bucket control')
     }
@@ -37,12 +38,9 @@ class Buildozer implements VehicleInterface
     }
 }
 
-class Tank implements VehicleInterface
+class Tank extends Vehicle
 {
-    public function move() {
-        echo('Move')
-    }
-    public function ability() {
+       public function ability() {
         echo('Shot')
     }
     public function wipers() {
